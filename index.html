@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#dde6d3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111b18" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet" />
+    <title>Psalm 23 — The Lord Is My Shepherd</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --paper: #f5f5ed;
+        --paper-soft: #edf1e7;
+        --ink: #26342d;
+        --muted: #5a695f;
+        --moss: #46614d;
+        --sage: #b9c9ae;
+        --gold: #b88d4e;
+        --line: rgba(70, 97, 77, 0.24);
+        --shade: rgba(15, 29, 22, 0.56);
+        --light: #fffdf3;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #111916;
+          --paper-soft: #16211c;
+          --ink: #edf1e8;
+          --muted: #b5c2b7;
+          --moss: #9fbea5;
+          --sage: #536a59;
+          --gold: #d6ae70;
+          --line: rgba(186, 209, 190, 0.2);
+          --shade: rgba(7, 14, 11, 0.66);
+          --light: #fffced;
+        }
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--paper);
+      }
+
+      body {
+        margin: 0;
+        min-width: 0;
+        overflow-x: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Source Sans 3", sans-serif;
+        text-rendering: optimizeLegibility;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 92svh;
+        display: grid;
+        place-items: end center;
+        isolation: isolate;
+        overflow: hidden;
+        background: #334c3d;
+        color: var(--light);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background: url("illustration.jpg") center 48% / cover no-repeat;
+        transform: scale(1.015);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(11, 24, 17, 0.07) 0%, rgba(11, 24, 17, 0.08) 35%, rgba(11, 24, 17, 0.78) 100%),
+          linear-gradient(90deg, rgba(11, 24, 17, 0.18), transparent 45%, rgba(11, 24, 17, 0.1));
+      }
+
+      .hero-content {
+        width: min(100%, 980px);
+        padding: clamp(5rem, 14vh, 9rem) clamp(1.35rem, 6vw, 4.5rem) clamp(3.2rem, 8vh, 5.5rem);
+        text-align: center;
+      }
+
+      .psalm-label {
+        margin: 0 0 1.4rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 253, 243, 0.82);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: clamp(3rem, 8.8vw, 6.8rem);
+        font-weight: 300;
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+        text-wrap: balance;
+        text-shadow: 0 2px 30px rgba(0, 0, 0, 0.22);
+      }
+
+      .invitation {
+        max-width: 38rem;
+        margin: 1.7rem auto 0;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: clamp(1.05rem, 2vw, 1.32rem);
+        line-height: 1.55;
+        color: rgba(255, 253, 243, 0.85);
+      }
+
+      .scroll-cue {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 2.2rem;
+        color: rgba(255, 253, 243, 0.72);
+        text-decoration: none;
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .scroll-cue::after {
+        content: "";
+        width: 1px;
+        height: 2.25rem;
+        background: currentColor;
+      }
+
+      main {
+        position: relative;
+        background:
+          radial-gradient(circle at 10% 12%, color-mix(in srgb, var(--sage) 20%, transparent), transparent 29rem),
+          var(--paper);
+      }
+
+      .verse {
+        position: relative;
+        min-height: 76svh;
+        display: grid;
+        align-items: center;
+        padding: clamp(5rem, 14vw, 10rem) clamp(1.35rem, 7vw, 5rem);
+      }
+
+      .verse + .verse::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: min(7rem, 24vw);
+        height: 1px;
+        background: var(--line);
+        transform: translateX(-50%);
+      }
+
+      .verse:nth-child(even) {
+        background: var(--paper-soft);
+      }
+
+      .verse-inner {
+        width: min(100%, 900px);
+        margin: 0 auto;
+      }
+
+      .verse:nth-child(even) .verse-inner {
+        width: min(100%, 820px);
+      }
+
+      .number {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin: 0 0 clamp(1.4rem, 4vw, 2.2rem);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--moss);
+      }
+
+      .number::after {
+        content: "";
+        width: 3.2rem;
+        height: 1px;
+        background: var(--line);
+      }
+
+      blockquote {
+        margin: 0;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: clamp(2rem, 5.6vw, 4.35rem);
+        font-weight: 300;
+        line-height: 1.18;
+        letter-spacing: -0.025em;
+        text-wrap: pretty;
+      }
+
+      .reflection {
+        max-width: 36rem;
+        margin: clamp(1.7rem, 4vw, 2.6rem) 0 0;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        font-size: clamp(1rem, 1.7vw, 1.14rem);
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .verse:nth-child(even) .number,
+      .verse:nth-child(even) .reflection {
+        margin-left: auto;
+      }
+
+      .verse:nth-child(even) blockquote {
+        text-align: right;
+      }
+
+      .verse:nth-child(even) .number {
+        justify-content: flex-end;
+      }
+
+      .verse:nth-child(even) .number::after {
+        order: -1;
+      }
+
+      .verse:nth-child(even) .reflection {
+        text-align: right;
+      }
+
+      .closing {
+        position: relative;
+        min-height: 72svh;
+        display: grid;
+        place-items: center;
+        padding: 7rem 1.35rem;
+        isolation: isolate;
+        overflow: hidden;
+        background: #1c3025;
+        color: var(--light);
+        text-align: center;
+      }
+
+      .closing::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -2;
+        background: url("illustration.jpg") center 72% / cover no-repeat;
+        filter: saturate(0.85);
+      }
+
+      .closing::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: var(--shade);
+      }
+
+      .closing-inner {
+        width: min(100%, 720px);
+      }
+
+      .closing-mark {
+        display: block;
+        margin-bottom: 1.2rem;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: 2rem;
+        color: #e7c98f;
+      }
+
+      .closing p {
+        margin: 0;
+        font-family: "Newsreader", Georgia, serif;
+        font-size: clamp(2rem, 5vw, 3.75rem);
+        font-weight: 300;
+        line-height: 1.2;
+        text-wrap: balance;
+      }
+
+      footer {
+        padding: 2rem 1.35rem calc(2rem + env(safe-area-inset-bottom));
+        background: #0c1511;
+        color: rgba(245, 245, 237, 0.66);
+        text-align: center;
+        font-size: 0.82rem;
+        letter-spacing: 0.03em;
+      }
+
+      @media (max-width: 600px) {
+        .hero { min-height: 88svh; }
+        .hero::before { background-position: 59% center; }
+        .hero-content { padding-bottom: 2.8rem; }
+        .verse { min-height: auto; padding-top: 6.6rem; padding-bottom: 6.6rem; }
+        .verse:nth-child(even) blockquote,
+        .verse:nth-child(even) .reflection { text-align: left; }
+        .verse:nth-child(even) .number { justify-content: flex-start; }
+        .verse:nth-child(even) .number::after { order: initial; }
+        blockquote { font-size: clamp(2rem, 9.2vw, 3.1rem); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-content">
+        <p class="psalm-label">A Psalm of David</p>
+        <h1>The Lord is my shepherd.</h1>
+        <p class="invitation">Six verses to read slowly. Rest here awhile.</p>
+        <a class="scroll-cue" href="#verse-1" aria-label="Begin with verse one">Begin</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="verse" id="verse-1" aria-labelledby="label-1">
+        <div class="verse-inner">
+          <p class="number" id="label-1">Verse one</p>
+          <blockquote>Yahweh is my shepherd: I shall lack nothing.</blockquote>
+          <p class="reflection">You are known, led, and cared for by the Shepherd who never loses sight of you.</p>
+        </div>
+      </section>
+
+      <section class="verse" id="verse-2" aria-labelledby="label-2">
+        <div class="verse-inner">
+          <p class="number" id="label-2">Verse two</p>
+          <blockquote>He makes me lie down in green pastures. He leads me beside still waters.</blockquote>
+          <p class="reflection">Receive the rest you do not have to earn.</p>
+        </div>
+      </section>
+
+      <section class="verse" id="verse-3" aria-labelledby="label-3">
+        <div class="verse-inner">
+          <p class="number" id="label-3">Verse three</p>
+          <blockquote>He restores my soul. He guides me in the paths of righteousness for his name’s sake.</blockquote>
+          <p class="reflection">The One who guides you is also the One who restores you.</p>
+        </div>
+      </section>
+
+      <section class="verse" id="verse-4" aria-labelledby="label-4">
+        <div class="verse-inner">
+          <p class="number" id="label-4">Verse four</p>
+          <blockquote>Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me. Your rod and your staff, they comfort me.</blockquote>
+          <p class="reflection">The valley is not the end of the path. You do not walk it alone.</p>
+        </div>
+      </section>
+
+      <section class="verse" id="verse-5" aria-labelledby="label-5">
+        <div class="verse-inner">
+          <p class="number" id="label-5">Verse five</p>
+          <blockquote>You prepare a table before me in the presence of my enemies. You anoint my head with oil. My cup runs over.</blockquote>
+          <p class="reflection">Even here, there is a table. Even now, the cup overflows.</p>
+        </div>
+      </section>
+
+      <section class="verse" id="verse-6" aria-labelledby="label-6">
+        <div class="verse-inner">
+          <p class="number" id="label-6">Verse six</p>
+          <blockquote>Surely goodness and loving kindness shall follow me all the days of my life, and I will dwell in Yahweh’s house forever.</blockquote>
+          <p class="reflection">You are being followed by mercy, and you are being led home.</p>
+        </div>
+      </section>
+    </main>
+
+    <section class="closing" aria-label="Closing meditation">
+      <div class="closing-inner">
+        <span class="closing-mark" aria-hidden="true">✦</span>
+        <p>The Shepherd is with you.<br />Rest in his care.</p>
+      </div>
+    </section>
+
+    <footer>Psalm 23 · World English Bible · Public domain</footer>
+  </body>
+</html>
